@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Get in touch with Marrow & Field to enquire about land or property listings, or book an inspection.">
+<title>Contact | Marrow & Field</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav id="navbar">
+    <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 48 48" fill="none">
+            <path d="M4 34 L18 14 L28 24 L44 6" stroke="#7A8C5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 40 L20 22 L30 30 L44 16" stroke="#C9A876" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="nav-logo-txt">
+            <span class="nav-logo-name">Marrow &amp; Field</span>
+            <span class="nav-logo-sub">Land &amp; Property</span>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Speak To Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+    <button class="mob-close" id="mobClose">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="listings.html">Listings</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-cta">Speak To Us</a>
+</div>
+
+<div class="page-header">
+    <div class="eyebrow"><span class="dash"></span>Contact</div>
+    <h1>Let's talk about your next plot.</h1>
+    <p>Reach out about a specific listing, or tell us what you're looking for and we'll find it for you.</p>
+</div>
+
+<section class="section">
+    <div class="contact-grid">
+        <div class="reveal">
+            <div class="contact-info-item">
+                <div class="contact-ico">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6B43" stroke-width="2"><path d="M3 5a2 2 0 012-2h3l2 5-2.5 1.5a11 11 0 005 5L14 12l5 2v3a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
+                </div>
+                <div>
+                    <h4>Call or WhatsApp</h4>
+                    <p>+234 800 000 0000</p>
+                </div>
+            </div>
+            <div class="contact-info-item">
+                <div class="contact-ico">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6B43" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                </div>
+                <div>
+                    <h4>Email</h4>
+                    <p>hello@marrowfield.example</p>
+                </div>
+            </div>
+            <div class="contact-info-item">
+                <div class="contact-ico">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6B43" stroke-width="2"><path d="M12 21s7-7.5 7-12a7 7 0 10-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                </div>
+                <div>
+                    <h4>Office</h4>
+                    <p>14 Aba Road, Port Harcourt, Rivers State</p>
+                </div>
+            </div>
+            <div class="contact-info-item">
+                <div class="contact-ico">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6B43" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                </div>
+                <div>
+                    <h4>Hours</h4>
+                    <p>Mon &ndash; Sat, 9am &ndash; 6pm</p>
+                </div>
+            </div>
+
+            <div class="map-frame">
+                <svg viewBox="0 0 500 220" preserveAspectRatio="xMidYMid slice" style="width:100%;height:auto;display:block;">
+                    <rect width="500" height="220" fill="#E2D4B5"/>
+                    <line x1="0" y1="110" x2="500" y2="110" stroke="#B08F5C" stroke-width="14"/>
+                    <line x1="160" y1="0" x2="160" y2="220" stroke="#B08F5C" stroke-width="10"/>
+                    <line x1="340" y1="0" x2="340" y2="220" stroke="#B08F5C" stroke-width="10"/>
+                    <circle cx="160" cy="110" r="8" fill="#A8553A"/>
+                </svg>
+            </div>
+        </div>
+
+        <form class="reveal" action="#" method="POST" onsubmit="return handleDemoSubmit(event)">
+            <div class="form-group">
+                <label for="cName">Full Name</label>
+                <input type="text" id="cName" name="name" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="cEmail">Email</label>
+                <input type="email" id="cEmail" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="cInterest">I'm interested in</label>
+                <select id="cInterest" name="interest">
+                    <option>Buying land</option>
+                    <option>Buying a property</option>
+                    <option>Booking an inspection</option>
+                    <option>General enquiry</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cMsg">Message</label>
+                <textarea id="cMsg" name="message" rows="4" placeholder="Tell us what you're looking for"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="foot-grid">
+        <div>
+            <div class="foot-brand">
+                <svg viewBox="0 0 48 48" fill="none"><path d="M4 34 L18 14 L28 24 L44 6" stroke="#7A8C5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 40 L20 22 L30 30 L44 16" stroke="#C9A876" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Marrow &amp; Field</span>
+            </div>
+            <p>Land and property, sold honestly. Based in Port Harcourt, serving buyers and investors across Rivers State and beyond.</p>
+        </div>
+        <div class="foot-col">
+            <h4>Explore</h4>
+            <a href="listings.html">Listings</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="foot-col">
+            <h4>Contact</h4>
+            <a href="tel:+2348000000000">+234 800 000 0000</a>
+            <a href="mailto:hello@marrowfield.example">hello@marrowfield.example</a>
+        </div>
+    </div>
+    <div class="foot-bottom">
+        <p>&copy; 2026 Marrow &amp; Field. All rights reserved.</p>
+        <span class="demo-tag">Portfolio demo build by META SERVICES</span>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+function handleDemoSubmit(e) {
+    e.preventDefault();
+    alert('This is a portfolio demo site — the form is for display only and does not send a real message.');
+    return false;
+}
+</script>
+</body>
+</html>
