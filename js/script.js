@@ -26,12 +26,46 @@ const dots = document.querySelectorAll('.hero-dot');
 if (slides.length > 1) {
     let current = 0;
     function showSlide(i) {
-        slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+        slides.forEach((s, idx) => {
+            if (idx === i) {
+                s.classList.remove('active');
+                void s.offsetWidth;
+                s.classList.add('active');
+            } else {
+                s.classList.remove('active');
+            }
+        });
         dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
         current = i;
     }
     dots.forEach((d, idx) => d.addEventListener('click', () => showSlide(idx)));
     setInterval(() => {
         showSlide((current + 1) % slides.length);
-    }, 5500);
+    }, 8000);
+}
+
+// Animated count-up for stats when scrolled into view
+const statNums = document.querySelectorAll('.stat-num[data-count]');
+if (statNums.length) {
+    const statObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.count, 10);
+                const suffix = el.dataset.suffix || '';
+                const duration = 1400;
+                const startTime = performance.now();
+                function tick(now) {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.round(target * eased);
+                    el.textContent = current + suffix;
+                    if (progress < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+                statObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.4 });
+    statNums.forEach(el => statObserver.observe(el));
 }
