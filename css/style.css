@@ -63,6 +63,7 @@ nav.scrolled .nav-logo { color:var(--black); }
 }
 nav.scrolled .nav-cta { border-color:var(--black); color:var(--black); }
 .nav-cta:hover { background:var(--black); color:var(--white); border-color:var(--black); }
+nav.scrolled .nav-cta:hover { background:var(--black); color:var(--white); border-color:var(--black); }
 
 .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
 .hamburger span { width:22px; height:1.5px; background:var(--white); display:block; transition:background 0.3s; }
@@ -134,10 +135,6 @@ nav.scrolled .nav-cta { border-color:var(--black); color:var(--black); }
     transition:border-color 0.3s ease, background 0.3s ease;
 }
 .btn-outline:hover { border-color:var(--white); background:rgba(255,255,255,0.1); }
-
-.hero-dots { position:absolute; bottom:36px; right:64px; z-index:2; display:flex; gap:10px; }
-.hero-dot { width:24px; height:2px; background:rgba(255,255,255,0.35); cursor:pointer; transition:background 0.3s; border:none; }
-.hero-dot.active { background:var(--white); }
 
 .hero-divider { display:none; }
 

@@ -22,7 +22,6 @@ const revealObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 const slides = document.querySelectorAll('.hero-slide');
-const dots = document.querySelectorAll('.hero-dot');
 if (slides.length > 1) {
     let current = 0;
     function showSlide(i) {
@@ -35,10 +34,8 @@ if (slides.length > 1) {
                 s.classList.remove('active');
             }
         });
-        dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
         current = i;
     }
-    dots.forEach((d, idx) => d.addEventListener('click', () => showSlide(idx)));
     setInterval(() => {
         showSlide((current + 1) % slides.length);
     }, 8000);
