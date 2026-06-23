@@ -69,3 +69,49 @@ if (statNums.length) {
     }, { threshold: 0.4 });
     statNums.forEach(el => statObserver.observe(el));
 }
+
+// Subtle scroll parallax on the hero background image only.
+// (page-header uses a single element for both background and text,
+// so parallaxing it would shift the heading text too - skipped to avoid that bug)
+const parallaxEls = document.querySelectorAll('.hero-slides');
+if (parallaxEls.length && window.matchMedia('(min-width: 769px)').matches) {
+    let ticking = false;
+    function updateParallax() {
+        const scrolled = window.scrollY;
+        parallaxEls.forEach(el => {
+            const speed = 0.15;
+            el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+        ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }, { passive: true });
+}
+
+// Magnetic tilt on listing cards - follows cursor, subtle 3D feel
+const tiltCards = document.querySelectorAll('.listing-card');
+if (window.matchMedia('(min-width: 769px)').matches) {
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform = `perspective(900px) rotateY(${x * 3.5}deg) rotateX(${-y * 3.5}deg) translateY(-8px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+}
+
+// Stagger reveal: child elements within a reveal-group fade in sequentially
+document.querySelectorAll('.values-grid, .team-grid').forEach(group => {
+    const children = Array.from(group.children);
+    children.forEach((child, i) => {
+        child.style.transitionDelay = `${i * 90}ms`;
+    });
+});
