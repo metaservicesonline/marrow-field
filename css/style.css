@@ -220,6 +220,20 @@ nav.scrolled .nav-cta:hover { background:var(--black); color:var(--white); borde
 .stat-num { font-family:var(--font-display); font-size:46px; font-weight:400; color:var(--white); letter-spacing:-1px; }
 .stat-lbl { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:12px; font-weight:500; }
 
+/* ============ WORD-BY-WORD TEXT REVEAL ============ */
+.word-reveal {
+    display:inline-block;
+    overflow:hidden;
+    vertical-align:top;
+}
+.word-reveal-inner {
+    display:inline-block;
+    transform:translateY(110%);
+    transition:transform 0.7s cubic-bezier(.2,.8,.2,1);
+    will-change:transform;
+}
+.word-reveal.show .word-reveal-inner { transform:translateY(0); }
+
 /* ============ SHOWCASE (diagonal split, synced transitions) ============ */
 .showcase {
     position:relative; min-height:560px; overflow:hidden;

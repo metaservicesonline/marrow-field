@@ -105,6 +105,92 @@ if (window.matchMedia('(min-width: 769px)').matches) {
     });
 }
 
+// Word-by-word headline reveal: splits text into individual words,
+// each wrapped in a clipped box, then reveals them in a staggered
+// upward slide as the element scrolls into view (or on initial load
+// for the hero, since it's visible immediately).
+// Walks child nodes (not just textContent) so it safely preserves
+// <br> line breaks and <em> emphasis instead of destroying them.
+function wrapWord(word, isLast) {
+    const wrap = document.createElement('span');
+    wrap.className = 'word-reveal';
+    const inner = document.createElement('span');
+    inner.className = 'word-reveal-inner';
+    inner.textContent = word + (isLast ? '' : '\u00A0');
+    wrap.appendChild(inner);
+    return wrap;
+}
+
+function splitIntoWords(el) {
+    const nodes = Array.from(el.childNodes);
+    const fragment = document.createDocumentFragment();
+
+    nodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const words = node.textContent.trim().split(/\s+/).filter(Boolean);
+            words.forEach((word, i) => {
+                fragment.appendChild(wrapWord(word, i === words.length - 1));
+                fragment.appendChild(document.createTextNode(' '));
+            });
+        } else if (node.nodeName === 'BR') {
+            fragment.appendChild(node.cloneNode());
+        } else {
+            // Element like <em> - split its own text content, keep the tag wrapping it
+            const wrapperTag = document.createElement(node.nodeName);
+            for (const attr of node.attributes || []) wrapperTag.setAttribute(attr.name, attr.value);
+            const words = node.textContent.trim().split(/\s+/).filter(Boolean);
+            words.forEach((word, i) => {
+                wrapperTag.appendChild(wrapWord(word, i === words.length - 1));
+                wrapperTag.appendChild(document.createTextNode(' '));
+            });
+            fragment.appendChild(wrapperTag);
+        }
+    });
+
+    el.innerHTML = '';
+    el.appendChild(fragment);
+}
+
+function revealWords(el, baseDelay = 0) {
+    const words = el.querySelectorAll('.word-reveal');
+    words.forEach((w, i) => {
+        setTimeout(() => w.classList.add('show'), baseDelay + i * 70);
+    });
+}
+
+const wordSplitTargets = document.querySelectorAll('[data-split-words]');
+wordSplitTargets.forEach(el => {
+    if (!el.closest('.showcase-text')) splitIntoWords(el);
+});
+
+// Hero headline animates immediately on load
+const heroHeading = document.querySelector('.hero h1[data-split-words]');
+if (heroHeading) {
+    setTimeout(() => revealWords(heroHeading, 200), 100);
+}
+
+// All other split-word headlines animate when scrolled into view
+const wordObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            revealWords(entry.target, 0);
+            wordObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.4 });
+document.querySelectorAll('[data-split-words]').forEach(el => {
+    if (!el.closest('.hero') && !el.closest('.showcase-text')) wordObserver.observe(el);
+});
+
+// Showcase headlines re-animate every time their slide becomes active
+function animateShowcaseHeadline(slide) {
+    const h3 = slide.querySelector('h3[data-split-words]');
+    if (h3) {
+        splitIntoWords(h3);
+        revealWords(h3, 350);
+    }
+}
+
 // Stagger reveal: child elements within a reveal-group fade in sequentially
 document.querySelectorAll('.values-grid, .team-grid').forEach(group => {
     const children = Array.from(group.children);
@@ -124,6 +210,7 @@ if (showcaseSlides.length > 1) {
                 s.classList.remove('active');
                 void s.offsetWidth;
                 s.classList.add('active');
+                animateShowcaseHeadline(s);
             } else {
                 s.classList.remove('active');
             }
@@ -138,9 +225,14 @@ if (showcaseSlides.length > 1) {
     const showcaseSection = document.getElementById('showcase');
     if (showcaseSection) {
         let showcaseInterval = null;
+        let showcaseStarted = false;
         const showcaseObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !showcaseInterval) {
+                    if (!showcaseStarted) {
+                        animateShowcaseHeadline(showcaseSlides[showcaseCurrent]);
+                        showcaseStarted = true;
+                    }
                     showcaseInterval = setInterval(() => {
                         showShowcaseSlide((showcaseCurrent + 1) % showcaseSlides.length);
                     }, 6500);
