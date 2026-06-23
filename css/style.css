@@ -93,11 +93,11 @@ nav.scrolled .nav-cta:hover { background:var(--black); color:var(--white); borde
 }
 .hero-slide.active {
     opacity:1;
-    animation:ken-burns 9s linear forwards;
+    animation:ken-burns 14s linear forwards;
 }
 @keyframes ken-burns {
     from { transform:scale(1); }
-    to   { transform:scale(1.08); }
+    to   { transform:scale(1.32); }
 }
 .hero-overlay {
     position:absolute; inset:0; z-index:1;
@@ -219,6 +219,53 @@ nav.scrolled .nav-cta:hover { background:var(--black); color:var(--white); borde
 .stats-grid > div:first-child { border-left:none; }
 .stat-num { font-family:var(--font-display); font-size:46px; font-weight:400; color:var(--white); letter-spacing:-1px; }
 .stat-lbl { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:12px; font-weight:500; }
+
+/* ============ SHOWCASE (diagonal split, synced transitions) ============ */
+.showcase {
+    position:relative; min-height:560px; overflow:hidden;
+    background:var(--black); display:flex; align-items:center; justify-content:center;
+}
+.showcase-slide {
+    position:absolute; inset:0; opacity:0;
+    transition:opacity 0.9s ease;
+    pointer-events:none;
+}
+.showcase-slide.active { opacity:1; pointer-events:auto; }
+.showcase-panel {
+    position:absolute; top:0; bottom:0;
+    background-size:cover; background-position:center;
+    transition:opacity 0.9s ease;
+}
+.showcase-panel.p1 { left:0; width:62%; clip-path:polygon(0 0, 100% 0, 78% 100%, 0% 100%); }
+.showcase-panel.p2 { left:55%; right:0; clip-path:polygon(22% 0, 100% 0, 100% 100%, 0% 100%); }
+.showcase-slide.active .showcase-panel { animation:showcase-zoom 8s ease-out forwards; }
+@keyframes showcase-zoom {
+    from { transform:scale(1.12); }
+    to   { transform:scale(1); }
+}
+.showcase-text {
+    position:relative; z-index:3; text-align:center; max-width:560px;
+    padding:0 24px;
+}
+.showcase-eyebrow {
+    font-size:11px; letter-spacing:4px; text-transform:uppercase;
+    color:var(--brass-glow, #C9A876); font-weight:600; margin-bottom:18px;
+    opacity:0; transform:translateY(14px); transition:opacity 0.7s ease, transform 0.7s ease;
+}
+.showcase-slide.active .showcase-eyebrow { opacity:1; transform:translateY(0); transition-delay:0.3s; }
+.showcase-text h3 {
+    font-family:var(--font-display); font-size:clamp(28px,4vw,46px); font-weight:500;
+    color:var(--white); letter-spacing:-0.8px; line-height:1.15;
+    opacity:0; transform:translateY(18px); transition:opacity 0.8s ease, transform 0.8s ease;
+}
+.showcase-slide.active .showcase-text h3 { opacity:1; transform:translateY(0); transition-delay:0.45s; }
+.showcase-overlay {
+    position:absolute; inset:0; z-index:2;
+    background:linear-gradient(180deg, rgba(14,14,14,0.55) 0%, rgba(14,14,14,0.25) 45%, rgba(14,14,14,0.6) 100%);
+}
+.showcase-dots { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:4; display:flex; gap:10px; }
+.showcase-dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; cursor:pointer; transition:background 0.3s, transform 0.3s; padding:0; }
+.showcase-dot.active { background:var(--white); transform:scale(1.3); }
 
 /* ============ CTA BAND ============ */
 .cta-band {
@@ -352,4 +399,7 @@ footer { background:var(--black); padding:80px 64px 32px; color:rgba(255,255,255
     .page-header { padding:150px 24px 60px; min-height:50vh; }
     .map-badge { position:static; margin-top:0; max-width:none; }
     .about-img img { height:320px; }
+    .showcase { min-height:440px; }
+    .showcase-panel.p1 { width:100%; clip-path:none; }
+    .showcase-panel.p2 { display:none; }
 }

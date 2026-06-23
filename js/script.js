@@ -38,7 +38,7 @@ if (slides.length > 1) {
     }
     setInterval(() => {
         showSlide((current + 1) % slides.length);
-    }, 8000);
+    }, 14000);
 }
 
 // Animated count-up for stats when scrolled into view
@@ -112,3 +112,44 @@ document.querySelectorAll('.values-grid, .team-grid').forEach(group => {
         child.style.transitionDelay = `${i * 90}ms`;
     });
 });
+
+// Showcase section: diagonal-split slides with synced image + headline transitions
+const showcaseSlides = document.querySelectorAll('.showcase-slide');
+const showcaseDots = document.querySelectorAll('.showcase-dot');
+if (showcaseSlides.length > 1) {
+    let showcaseCurrent = 0;
+    function showShowcaseSlide(i) {
+        showcaseSlides.forEach((s, idx) => {
+            if (idx === i) {
+                s.classList.remove('active');
+                void s.offsetWidth;
+                s.classList.add('active');
+            } else {
+                s.classList.remove('active');
+            }
+        });
+        showcaseDots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+        showcaseCurrent = i;
+    }
+    showcaseDots.forEach((d, idx) => d.addEventListener('click', () => showShowcaseSlide(idx)));
+
+    // Only auto-advance once the section has actually scrolled into view,
+    // so it doesn't burn through slides while off-screen
+    const showcaseSection = document.getElementById('showcase');
+    if (showcaseSection) {
+        let showcaseInterval = null;
+        const showcaseObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !showcaseInterval) {
+                    showcaseInterval = setInterval(() => {
+                        showShowcaseSlide((showcaseCurrent + 1) % showcaseSlides.length);
+                    }, 6500);
+                } else if (!entry.isIntersecting && showcaseInterval) {
+                    clearInterval(showcaseInterval);
+                    showcaseInterval = null;
+                }
+            });
+        }, { threshold: 0.3 });
+        showcaseObserver.observe(showcaseSection);
+    }
+}
