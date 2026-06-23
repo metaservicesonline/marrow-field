@@ -15,8 +15,8 @@
 <nav id="navbar">
     <a href="index.html" class="nav-logo">
         <svg viewBox="0 0 48 48" fill="none">
-            <path d="M4 34 L18 14 L28 24 L44 6" stroke="#7A8C5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4 40 L20 22 L30 30 L44 16" stroke="#C9A876" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 34 L18 14 L28 24 L44 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 40 L20 22 L30 30 L44 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <div class="nav-logo-txt">
             <span class="nav-logo-name">Marrow &amp; Field</span>
@@ -79,13 +79,13 @@
         <p class="section-sub">Whether you're starting from bare earth or buying a finished home, both paths run through the same standard of due diligence.</p>
     </div>
     <div class="duality reveal">
-        <div class="duality-half land">
+        <div class="duality-half land" style="background-image:url('images/construction-2.jpg');">
             <span class="duality-tag">Land</span>
             <h3>Buy the ground first.</h3>
             <p>Surveyed plots with verified titles, ready for outright purchase or installment payment. Build when you're ready — the land waits for no one but you.</p>
             <a href="listings.html#land" class="btn-link">Browse land plots <span aria-hidden="true">&rarr;</span></a>
         </div>
-        <div class="duality-half property">
+        <div class="duality-half property" style="background-image:url('images/estate-1.jpg');">
             <span class="duality-tag">Property</span>
             <h3>Move into something finished.</h3>
             <p>Completed homes and developments, inspected and documented before they ever reach a listing page. What you see is what you're handed the keys to.</p>
@@ -94,16 +94,16 @@
     </div>
 </section>
 
-<section class="section" style="background:var(--sand);">
+<section class="section" style="background:var(--off-white);">
     <div class="section-hdr reveal">
         <div class="eyebrow"><span class="dash"></span>Featured</div>
         <h2 class="section-title">Recently listed.</h2>
     </div>
     <div class="listings-grid reveal">
         <div class="listing-card">
-            <img class="listing-img" src="images/construction-2.jpg" alt="land listing photo" loading="lazy">
+            <div class="listing-img-wrap"><img class="listing-img" src="images/construction-2.jpg" alt="land listing photo" loading="lazy"></div>
             <div class="listing-body">
-                <span class="listing-type land">Land</span>
+                <span class="listing-type">Land</span>
                 <h3>Eliogbolo Plains</h3>
                 <p class="listing-loc">Port Harcourt, Rivers State</p>
                 <div class="listing-meta">
@@ -113,9 +113,9 @@
             </div>
         </div>
         <div class="listing-card">
-            <img class="listing-img" src="images/estate-1.jpg" alt="property listing photo" loading="lazy">
+            <div class="listing-img-wrap"><img class="listing-img" src="images/estate-1.jpg" alt="property listing photo" loading="lazy"></div>
             <div class="listing-body">
-                <span class="listing-type property">Property</span>
+                <span class="listing-type">Property</span>
                 <h3>Woodvale Bungalow</h3>
                 <p class="listing-loc">Trans Amadi, Port Harcourt</p>
                 <div class="listing-meta">
@@ -125,9 +125,9 @@
             </div>
         </div>
         <div class="listing-card">
-            <img class="listing-img" src="images/construction-1.jpg" alt="land listing photo" loading="lazy">
+            <div class="listing-img-wrap"><img class="listing-img" src="images/construction-1.jpg" alt="land listing photo" loading="lazy"></div>
             <div class="listing-body">
-                <span class="listing-type land">Land</span>
+                <span class="listing-type">Land</span>
                 <h3>Eneka Border Plots</h3>
                 <p class="listing-loc">Eneka, Port Harcourt</p>
                 <div class="listing-meta">
@@ -173,7 +173,7 @@
     <div class="reveal">
         <h2>Ready to see the ground for yourself?</h2>
         <p>Book a site inspection or a viewing — no pressure, no obligation to buy.</p>
-        <a href="contact.html" class="btn-primary" style="background:var(--umber);">Book An Inspection</a>
+        <a href="contact.html" class="btn-primary">Book An Inspection</a>
     </div>
 </div>
 
@@ -181,7 +181,7 @@
     <div class="foot-grid">
         <div>
             <div class="foot-brand">
-                <svg viewBox="0 0 48 48" fill="none"><path d="M4 34 L18 14 L28 24 L44 6" stroke="#7A8C5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 40 L20 22 L30 30 L44 16" stroke="#C9A876" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg viewBox="0 0 48 48" fill="none"><path d="M4 34 L18 14 L28 24 L44 6" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 40 L20 22 L30 30 L44 16" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span>Marrow &amp; Field</span>
             </div>
             <p>Land and property, sold honestly. Based in Port Harcourt, serving buyers and investors across Rivers State and beyond.</p>

@@ -15,8 +15,8 @@
 <nav id="navbar">
     <a href="index.html" class="nav-logo">
         <svg viewBox="0 0 48 48" fill="none">
-            <path d="M4 34 L18 14 L28 24 L44 6" stroke="#3D4A35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4 40 L20 22 L30 30 L44 16" stroke="#B08D4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 34 L18 14 L28 24 L44 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 40 L20 22 L30 30 L44 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <div class="nav-logo-txt">
             <span class="nav-logo-name">Marrow &amp; Field</span>
@@ -42,7 +42,7 @@
     <a href="contact.html" class="nav-cta">Speak To Us</a>
 </div>
 
-<div class="page-header">
+<div class="page-header with-image" style="background-image:url('images/construction-2.jpg');">
     <div class="eyebrow"><span class="dash"></span>About Us</div>
     <h1>Built on ground we'd stand on ourselves.</h1>
     <p>Marrow & Field exists because too many people in this market have been sold land that didn't exist, or promises that evaporated after payment.</p>
@@ -51,7 +51,9 @@
 <section class="section">
     <div class="about-story reveal">
         <div>
-            <img class="about-img" src="images/construction-2.jpg" alt="Aerial view of land development" style="width:100%;height:auto;border-radius:6px;">
+            <div class="about-img">
+                <img src="images/construction-2.jpg" alt="Aerial view of land development">
+            </div>
         </div>
         <div>
             <p><strong>We started Marrow & Field after watching too many buyers get burned</strong> — land sold twice, titles that didn't hold up, agents who disappeared the moment money changed hands.</p>
@@ -61,7 +63,7 @@
     </div>
 </section>
 
-<section class="section" style="background:var(--sand);">
+<section class="section" style="background:var(--off-white);">
     <div class="section-hdr center reveal">
         <div class="eyebrow"><span class="dash"></span>Our Standard</div>
         <h2 class="section-title">How we vet every listing.</h2>
@@ -89,19 +91,25 @@
     </div>
     <div class="team-grid reveal">
         <div class="team-card">
-            <svg class="team-avatar" viewBox="0 0 88 88"><circle cx="44" cy="44" r="44" fill="#B08D4F"/><circle cx="44" cy="36" r="14" fill="#F5F1E8"/><path d="M16 80 Q44 56 72 80" fill="#F5F1E8"/></svg>
-            <h4>Adaeze Okonkwo</h4>
-            <span>Lead Land Agent</span>
+            <img class="team-avatar" src="images/team-1.jpg" alt="Adaeze Okonkwo">
+            <div class="team-info">
+                <h4>Adaeze Okonkwo</h4>
+                <span>Lead Land Agent</span>
+            </div>
         </div>
         <div class="team-card">
-            <svg class="team-avatar" viewBox="0 0 88 88"><circle cx="44" cy="44" r="44" fill="#3D4A35"/><circle cx="44" cy="36" r="14" fill="#F5F1E8"/><path d="M16 80 Q44 56 72 80" fill="#F5F1E8"/></svg>
-            <h4>Tamuno Wokoma</h4>
-            <span>Property Inspector</span>
+            <img class="team-avatar" src="images/team-2.jpg" alt="Tamuno Wokoma">
+            <div class="team-info">
+                <h4>Tamuno Wokoma</h4>
+                <span>Property Inspector</span>
+            </div>
         </div>
         <div class="team-card">
-            <svg class="team-avatar" viewBox="0 0 88 88"><circle cx="44" cy="44" r="44" fill="#9C4A33"/><circle cx="44" cy="36" r="14" fill="#F5F1E8"/><path d="M16 80 Q44 56 72 80" fill="#F5F1E8"/></svg>
-            <h4>Chiamaka Eze</h4>
-            <span>Client Relations</span>
+            <img class="team-avatar" src="images/team-3.jpg" alt="Chiamaka Eze">
+            <div class="team-info">
+                <h4>Chiamaka Eze</h4>
+                <span>Client Relations</span>
+            </div>
         </div>
     </div>
 </section>
@@ -110,7 +118,7 @@
     <div class="reveal">
         <h2>Want to see how we work, firsthand?</h2>
         <p>Book a no-obligation inspection of any listing on our site.</p>
-        <a href="contact.html" class="btn-primary" style="background:var(--umber);">Book An Inspection</a>
+        <a href="contact.html" class="btn-primary">Book An Inspection</a>
     </div>
 </div>
 
@@ -118,7 +126,7 @@
     <div class="foot-grid">
         <div>
             <div class="foot-brand">
-                <svg viewBox="0 0 48 48" fill="none"><path d="M4 34 L18 14 L28 24 L44 6" stroke="#3D4A35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 40 L20 22 L30 30 L44 16" stroke="#B08D4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg viewBox="0 0 48 48" fill="none"><path d="M4 34 L18 14 L28 24 L44 6" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 40 L20 22 L30 30 L44 16" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span>Marrow &amp; Field</span>
             </div>
             <p>Land and property, sold honestly. Based in Port Harcourt, serving buyers and investors across Rivers State and beyond.</p>
