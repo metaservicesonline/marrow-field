@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 </head>
 <body>
 
@@ -59,6 +60,20 @@
         <div class="hero-divider-tag">Land Plots</div>
         <div class="hero-divider-tag">Built Homes</div>
         <div class="hero-divider-tag">Verified Titles</div>
+    </div>
+</section>
+
+<section class="hologram-section">
+    <div class="hologram-bg-grid"></div>
+    <div class="hologram-inner">
+        <div class="hologram-text reveal">
+            <div class="eyebrow"><span class="dash"></span>See It Before You Sign</div>
+            <h2>Every listing, modelled before it's marketed.</h2>
+            <p>We don't just photograph what we sell — we map it. Drag the model to look at Riverpoint Terrace from every angle, the same way our team inspects it before it ever reaches a listing page.</p>
+        </div>
+        <div class="hologram-canvas-wrap reveal" id="hologramCanvas">
+            <div class="hologram-hint">Drag to rotate</div>
+        </div>
     </div>
 </section>
 
@@ -230,5 +245,6 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script src="js/hologram.js"></script>
 </body>
 </html>

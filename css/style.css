@@ -10,6 +10,10 @@
     --line:       rgba(14,14,14,0.1);
     --line-dark:  rgba(255,255,255,0.14);
     --accent:     #2F3B2A;
+    --brass:      #D4AF6A;
+    --brass-dim:  #9A7F44;
+    --emerald:    #4A7A6A;
+    --emerald-dim:#2E4A40;
     --font-display: 'Fraunces', serif;
     --font-body:    'Inter', sans-serif;
 }
@@ -128,7 +132,7 @@ nav.scrolled .nav-cta:hover { background:var(--black); color:var(--white); borde
     letter-spacing:0.8px; text-transform:uppercase; display:inline-flex; align-items:center; gap:10px;
     transition:background 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease;
 }
-.btn-primary:hover { background:var(--accent); color:var(--white); letter-spacing:1.2px; }
+.btn-primary:hover { background:var(--emerald-dim); color:var(--white); letter-spacing:1.2px; }
 .btn-outline {
     border:1px solid rgba(255,255,255,0.45); color:var(--white);
     padding:17px 36px; font-size:13px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase;
@@ -217,7 +221,7 @@ nav.scrolled .nav-cta:hover { background:var(--black); color:var(--white); borde
 .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; max-width:1000px; margin:0 auto; }
 .stats-grid > div { text-align:center; border-left:1px solid rgba(255,255,255,0.12); }
 .stats-grid > div:first-child { border-left:none; }
-.stat-num { font-family:var(--font-display); font-size:46px; font-weight:400; color:var(--white); letter-spacing:-1px; }
+.stat-num { font-family:var(--font-display); font-size:46px; font-weight:400; color:var(--brass); letter-spacing:-1px; }
 .stat-lbl { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:12px; font-weight:500; }
 
 /* ============ WORD-BY-WORD TEXT REVEAL ============ */
@@ -233,6 +237,41 @@ nav.scrolled .nav-cta:hover { background:var(--black); color:var(--white); borde
     will-change:transform;
 }
 .word-reveal.show .word-reveal-inner { transform:translateY(0); }
+
+/* ============ 3D HOLOGRAM SECTION ============ */
+.hologram-section {
+    position:relative; background:var(--black); min-height:640px;
+    display:flex; align-items:center; overflow:hidden;
+    padding:90px 64px;
+}
+.hologram-bg-grid {
+    position:absolute; inset:0; opacity:0.4; pointer-events:none;
+    background-image:
+        linear-gradient(rgba(212,175,106,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,106,0.06) 1px, transparent 1px);
+    background-size:48px 48px;
+}
+.hologram-inner {
+    position:relative; z-index:2; display:grid; grid-template-columns:1fr 1.1fr;
+    gap:60px; align-items:center; max-width:1300px; margin:0 auto; width:100%;
+}
+.hologram-text .eyebrow { color:var(--brass); }
+.hologram-text .eyebrow .dash { background:var(--brass); }
+.hologram-text h2 {
+    font-family:var(--font-display); font-size:clamp(28px,3.4vw,44px); font-weight:500;
+    color:var(--white); letter-spacing:-0.6px; line-height:1.18; margin-bottom:20px;
+}
+.hologram-text p { font-size:15.5px; color:rgba(255,255,255,0.6); line-height:1.85; font-weight:300; max-width:420px; }
+.hologram-canvas-wrap {
+    position:relative; height:520px; cursor:grab;
+}
+.hologram-canvas-wrap:active { cursor:grabbing; }
+.hologram-canvas-wrap canvas { display:block; width:100%; height:100%; }
+.hologram-hint {
+    position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
+    color:rgba(255,255,255,0.35); font-size:10px; letter-spacing:3px; text-transform:uppercase;
+    pointer-events:none;
+}
 
 /* ============ SHOWCASE (diagonal split, synced transitions) ============ */
 .showcase {
@@ -289,7 +328,7 @@ nav.scrolled .nav-cta:hover { background:var(--black); color:var(--white); borde
 .cta-band h2 { font-family:var(--font-display); font-size:clamp(30px,3.4vw,48px); font-weight:500; color:var(--black); margin-bottom:20px; letter-spacing:-0.8px; }
 .cta-band p { font-size:16px; color:var(--grey); max-width:480px; margin:0 auto 40px; font-weight:300; }
 .cta-band .btn-primary { background:var(--black); color:var(--white); }
-.cta-band .btn-primary:hover { background:var(--accent); }
+.cta-band .btn-primary:hover { background:var(--emerald-dim); }
 
 /* ============ FOOTER ============ */
 footer { background:var(--black); padding:80px 64px 32px; color:rgba(255,255,255,0.55); }
@@ -368,7 +407,7 @@ footer { background:var(--black); padding:80px 64px 32px; color:rgba(255,255,255
     padding:17px 38px; font-size:12.5px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase;
     cursor:pointer; transition:background 0.3s;
 }
-.form-submit:hover { background:var(--accent); }
+.form-submit:hover { background:var(--emerald-dim); }
 .map-frame { margin-top:50px; position:relative; }
 .map-frame iframe { width:100%; height:340px; border:0; display:block; filter:grayscale(0.15) contrast(1.05); }
 .map-badge {
@@ -416,4 +455,7 @@ footer { background:var(--black); padding:80px 64px 32px; color:rgba(255,255,255
     .showcase { min-height:440px; }
     .showcase-panel.p1 { width:100%; clip-path:none; }
     .showcase-panel.p2 { display:none; }
+    .hologram-section { padding:60px 24px; min-height:auto; }
+    .hologram-inner { grid-template-columns:1fr; gap:30px; }
+    .hologram-canvas-wrap { height:380px; }
 }
