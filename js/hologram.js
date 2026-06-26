@@ -68,14 +68,18 @@
     holoGroup.add(door);
 
     function buildRoof(width, depth, height) {
+        // Triangle cross-section in the XY plane (the gable end profile)
         const shape = new THREE.Shape();
         shape.moveTo(-width / 2, 0);
         shape.lineTo(0, height);
         shape.lineTo(width / 2, 0);
         shape.lineTo(-width / 2, 0);
+        // Extrude along Z to create the ridge running front-to-back,
+        // matching the building's depth axis - no extra rotation needed,
+        // which is what was causing the roof to sit misaligned with the
+        // building footprint before.
         const geo = new THREE.ExtrudeGeometry(shape, { depth, bevelEnabled: false });
         geo.translate(0, 0, -depth / 2);
-        geo.rotateY(Math.PI / 2);
         return geo;
     }
     const roofY = FLOORS * FLOOR_H;

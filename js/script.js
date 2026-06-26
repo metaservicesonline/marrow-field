@@ -192,7 +192,7 @@ function animateShowcaseHeadline(slide) {
 }
 
 // Stagger reveal: child elements within a reveal-group fade in sequentially
-document.querySelectorAll('.values-grid, .team-grid').forEach(group => {
+document.querySelectorAll('.values-grid, .team-grid, .listings-grid').forEach(group => {
     const children = Array.from(group.children);
     children.forEach((child, i) => {
         child.style.transitionDelay = `${i * 90}ms`;
