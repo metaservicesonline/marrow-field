@@ -272,40 +272,28 @@ nav.scrolled .nav-cta:hover { background:var(--black); color:var(--white); borde
 }
 .word-reveal.show .word-reveal-inner { transform:translateY(0); }
 
-/* ============ 3D HOLOGRAM SECTION ============ */
-.hologram-section {
-    position:relative; background:var(--black); min-height:640px;
+/* ============ BLUEPRINT FEATURE SECTION ============ */
+.blueprint-section {
+    position:relative; background:var(--black); min-height:auto;
     display:flex; align-items:center; overflow:hidden;
     padding:90px 64px;
 }
-.hologram-bg-grid {
-    position:absolute; inset:0; opacity:0.4; pointer-events:none;
-    background-image:
-        linear-gradient(rgba(140,139,133,0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(140,139,133,0.08) 1px, transparent 1px);
-    background-size:48px 48px;
-}
-.hologram-inner {
-    position:relative; z-index:2; display:grid; grid-template-columns:1fr 1.1fr;
+.blueprint-inner {
+    position:relative; z-index:2; display:grid; grid-template-columns:0.85fr 1.15fr;
     gap:60px; align-items:center; max-width:1300px; margin:0 auto; width:100%;
 }
-.hologram-text .eyebrow { color:var(--beige); }
-.hologram-text .eyebrow .dash { background:var(--beige); }
-.hologram-text h2 {
+.blueprint-text .eyebrow { color:var(--beige); }
+.blueprint-text .eyebrow .dash { background:var(--beige); }
+.blueprint-text h2 {
     font-family:var(--font-display); font-size:clamp(28px,3.4vw,44px); font-weight:500;
     color:var(--white); letter-spacing:-0.6px; line-height:1.18; margin-bottom:20px;
 }
-.hologram-text p { font-size:15.5px; color:rgba(255,255,255,0.6); line-height:1.85; font-weight:300; max-width:420px; }
-.hologram-canvas-wrap {
-    position:relative; height:520px; cursor:grab;
+.blueprint-text p { font-size:15.5px; color:rgba(255,255,255,0.6); line-height:1.85; font-weight:300; max-width:420px; }
+.blueprint-image-wrap {
+    border-radius:6px; overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,0.5);
+    border:1px solid rgba(255,255,255,0.08);
 }
-.hologram-canvas-wrap:active { cursor:grabbing; }
-.hologram-canvas-wrap canvas { display:block; width:100%; height:100%; }
-.hologram-hint {
-    position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
-    color:rgba(255,255,255,0.35); font-size:10px; letter-spacing:3px; text-transform:uppercase;
-    pointer-events:none;
-}
+.blueprint-image-wrap img { width:100%; height:auto; display:block; }
 
 /* ============ SHOWCASE (diagonal split, synced transitions) ============ */
 .showcase {
@@ -493,7 +481,6 @@ footer { background:var(--black); padding:80px 64px 32px; color:rgba(255,255,255
     .showcase { min-height:440px; }
     .showcase-panel.p1 { width:100%; clip-path:none; }
     .showcase-panel.p2 { display:none; }
-    .hologram-section { padding:60px 24px; min-height:auto; }
-    .hologram-inner { grid-template-columns:1fr; gap:30px; }
-    .hologram-canvas-wrap { height:380px; }
+    .blueprint-section { padding:60px 24px; }
+    .blueprint-inner { grid-template-columns:1fr; gap:30px; }
 }

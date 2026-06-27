@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 </head>
 <body>
 
@@ -42,9 +41,9 @@
 
 <section class="hero">
     <div class="hero-slides">
-        <div class="hero-slide active" style="background-image:url('images/home-2.jpg');"></div>
-        <div class="hero-slide" style="background-image:url('images/estate-1.jpg');"></div>
+        <div class="hero-slide active" style="background-image:url('images/estate-1.jpg');"></div>
         <div class="hero-slide" style="background-image:url('images/construction-6.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('images/home-1.jpg');"></div>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-inner reveal">
@@ -63,16 +62,15 @@
     </div>
 </section>
 
-<section class="hologram-section">
-    <div class="hologram-bg-grid"></div>
-    <div class="hologram-inner">
-        <div class="hologram-text reveal">
+<section class="blueprint-section">
+    <div class="blueprint-inner">
+        <div class="blueprint-text reveal">
             <div class="eyebrow"><span class="dash"></span>See It Before You Sign</div>
-            <h2>Every listing, modelled before it's marketed.</h2>
-            <p>We don't just photograph what we sell — we map it. Drag the model to look at Riverpoint Terrace from every angle, the same way our team inspects it before it ever reaches a listing page.</p>
+            <h2>Every listing, mapped before it's marketed.</h2>
+            <p>Before Riverpoint Terrace ever reaches a listing page, our team produces a full architectural overview — every level, every elevation, every system — so what you see is exactly what gets built.</p>
         </div>
-        <div class="hologram-canvas-wrap reveal" id="hologramCanvas">
-            <div class="hologram-hint">Drag to rotate</div>
+        <div class="blueprint-image-wrap reveal">
+            <img src="images/riverpoint-blueprint.jpg" alt="Architectural blueprint overview of Riverpoint Terrace">
         </div>
     </div>
 </section>
@@ -189,7 +187,7 @@
 <section class="showcase" id="showcase">
     <div class="showcase-slide active">
         <div class="showcase-panel p1" style="background-image:url('images/home-1.jpg');"></div>
-        <div class="showcase-panel p2" style="background-image:url('images/home-2.jpg');"></div>
+        <div class="showcase-panel p2" style="background-image:url('images/construction-2.jpg');"></div>
         <div class="showcase-overlay"></div>
         <div class="showcase-text">
             <div class="showcase-eyebrow">Built To Live In</div>
@@ -257,6 +255,5 @@
 </footer>
 
 <script src="js/script.js"></script>
-<script src="js/hologram.js"></script>
 </body>
 </html>
