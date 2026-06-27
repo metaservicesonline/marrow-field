@@ -199,6 +199,20 @@ document.querySelectorAll('.values-grid, .team-grid, .listings-grid').forEach(gr
     });
 });
 
+// Blueprint feature image: slow continuous zoom, starts once scrolled into view
+const blueprintWrap = document.querySelector('.blueprint-image-wrap');
+if (blueprintWrap) {
+    const blueprintObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                blueprintWrap.classList.add('zoomed');
+                blueprintObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    blueprintObserver.observe(blueprintWrap);
+}
+
 // Showcase section: diagonal-split slides with synced image + headline transitions
 const showcaseSlides = document.querySelectorAll('.showcase-slide');
 const showcaseDots = document.querySelectorAll('.showcase-dot');
