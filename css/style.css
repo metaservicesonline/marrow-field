@@ -302,11 +302,11 @@ nav.scrolled .nav-cta:hover { background:var(--crimson-dark); border-color:var(-
     will-change:transform;
 }
 .blueprint-image-wrap.zoomed img {
-    animation:blueprint-zoom 16s ease-in-out infinite alternate;
+    animation:blueprint-zoom 7s ease-in-out infinite alternate;
 }
 @keyframes blueprint-zoom {
     from { transform:scale(1) translate(0, 0); }
-    to   { transform:scale(1.18) translate(-1.5%, -1.5%); }
+    to   { transform:scale(1.35) translate(-2.5%, -2.5%); }
 }
 
 /* ============ SHOWCASE (diagonal split, synced transitions) ============ */
