@@ -29,7 +29,26 @@ body {
     overflow-x:hidden;
     line-height:1.65;
     font-size:15px;
+    position:relative;
 }
+
+/* ============ ARCHITECTURAL TEXTURE ============ */
+.texture-light, .texture-dark {
+    position:relative;
+}
+.texture-light::before, .texture-dark::before {
+    content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+    background-repeat:repeat; background-size:640px 640px;
+}
+.texture-light::before {
+    opacity:0.22;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640"><g fill="none" stroke="%23A87A3D" stroke-width="1.4"><line x1="0" y1="480" x2="640" y2="480" stroke-width="1.8"/><path d="M40 480 L40 280 L110 280 L110 240 L150 200 L190 240 L190 280 L260 280 L260 480"/><line x1="60" y1="480" x2="60" y2="320"/><line x1="90" y1="480" x2="90" y2="320"/><line x1="150" y1="240" x2="150" y2="210"/><line x1="130" y1="300" x2="170" y2="300"/><line x1="210" y1="480" x2="210" y2="320"/><line x1="240" y1="480" x2="240" y2="320"/><line x1="40" y1="300" x2="260" y2="300" stroke-dasharray="4,4"/><circle cx="150" cy="195" r="5" fill="%23A87A3D"/><path d="M20 510 L280 510" stroke-width="1"/><line x1="20" y1="504" x2="20" y2="516"/><line x1="280" y1="504" x2="280" y2="516"/><text x="120" y="530" font-size="13" fill="%23A87A3D" font-family="monospace" letter-spacing="1">5.40m</text><rect x="340" y="120" width="220" height="360"/><line x1="340" y1="200" x2="560" y2="200"/><line x1="340" y1="280" x2="560" y2="280"/><line x1="340" y1="360" x2="560" y2="360"/><line x1="410" y1="120" x2="410" y2="480"/><line x1="490" y1="120" x2="490" y2="480"/><rect x="365" y="150" width="30" height="40"/><rect x="440" y="150" width="30" height="40"/><rect x="515" y="150" width="30" height="40"/><rect x="365" y="230" width="30" height="40"/><rect x="440" y="230" width="30" height="40"/><rect x="515" y="230" width="30" height="40"/><rect x="440" y="380" width="40" height="100"/><line x1="320" y1="120" x2="320" y2="480" stroke-dasharray="3,3"/><line x1="312" y1="120" x2="328" y2="120"/><line x1="312" y1="480" x2="328" y2="480"/><text x="270" y="305" font-size="13" fill="%23A87A3D" font-family="monospace" transform="rotate(-90 280 300)" letter-spacing="1">9.20m</text><path d="M340 510 L560 510"/><line x1="340" y1="504" x2="340" y2="516"/><line x1="560" y1="504" x2="560" y2="516"/><text x="405" y="530" font-size="13" fill="%23A87A3D" font-family="monospace" letter-spacing="1">7.30m</text><path d="M0 600 L640 600" stroke-dasharray="1,5" stroke-width="1"/><path d="M40 595 L40 605 M120 595 L120 605 M200 595 L200 605 M280 595 L280 605 M360 595 L360 605 M440 595 L440 605 M520 595 L520 605 M600 595 L600 605" stroke-width="1"/><text x="260" y="625" font-size="11" fill="%23A87A3D" font-family="monospace" letter-spacing="2">SITE PLAN — SCALE 1:100</text></g></svg>');
+}
+.texture-dark::before {
+    opacity:0.16;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640"><g fill="none" stroke="%23E8C77E" stroke-width="1.4"><line x1="0" y1="480" x2="640" y2="480" stroke-width="1.8"/><path d="M40 480 L40 280 L110 280 L110 240 L150 200 L190 240 L190 280 L260 280 L260 480"/><line x1="60" y1="480" x2="60" y2="320"/><line x1="90" y1="480" x2="90" y2="320"/><line x1="150" y1="240" x2="150" y2="210"/><circle cx="150" cy="195" r="5" fill="%23E8C77E"/><line x1="210" y1="480" x2="210" y2="320"/><line x1="240" y1="480" x2="240" y2="320"/><line x1="40" y1="300" x2="260" y2="300" stroke-dasharray="4,4"/><text x="120" y="530" font-size="13" fill="%23E8C77E" font-family="monospace" letter-spacing="1">5.40m</text><rect x="340" y="120" width="220" height="360"/><line x1="340" y1="200" x2="560" y2="200"/><line x1="340" y1="280" x2="560" y2="280"/><line x1="340" y1="360" x2="560" y2="360"/><line x1="410" y1="120" x2="410" y2="480"/><line x1="490" y1="120" x2="490" y2="480"/><rect x="365" y="150" width="30" height="40"/><rect x="440" y="150" width="30" height="40"/><rect x="515" y="150" width="30" height="40"/><rect x="365" y="230" width="30" height="40"/><rect x="440" y="230" width="30" height="40"/><rect x="515" y="230" width="30" height="40"/><rect x="440" y="380" width="40" height="100"/><text x="405" y="530" font-size="13" fill="%23E8C77E" font-family="monospace" letter-spacing="1">7.30m</text><path d="M0 600 L640 600" stroke-dasharray="1,5" stroke-width="1"/><text x="260" y="625" font-size="11" fill="%23E8C77E" font-family="monospace" letter-spacing="2">SITE PLAN — SCALE 1:100</text></g></svg>');
+}
+.texture-light > *, .texture-dark > * { position:relative; z-index:1; }
 
 a { text-decoration:none; color:inherit; }
 ul { list-style:none; }
